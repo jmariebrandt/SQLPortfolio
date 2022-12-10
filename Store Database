@@ -1,0 +1,56 @@
+CREATE TABLE store (id  INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, price INTEGER, in_stock INTEGER, on_order INTEGER); 
+
+INSERT INTO store VALUES
+(1, "tofu", 2, 4, 10, 20);
+INSERT INTO store VALUES
+(2, "bread", 10, 2.5, 10, 4);
+INSERT INTO store VALUES
+(3, "celery", 3, 1.79, 12, 23);
+INSERT INTO store VALUES
+(4, "banana", 25, 1.29, 20, 20);
+INSERT INTO store VALUES
+(5, "grapes", 10, 2.24, 15, 7);
+INSERT INTO store VALUES
+(6, "onion", 0, 2, 0, 20);
+INSERT INTO store VALUES
+(7, "eggs", 22, 3, 10, 1);
+INSERT INTO store VALUES
+(8, "corn", 18, .77, 0, 25);
+INSERT INTO store VALUES
+(9, "peas", 9, 2, 1, 0);
+INSERT INTO store VALUES
+(10, "pinapple", 10, 2, 10, 0);
+INSERT INTO store VALUES
+(11, "pasta", 11, 3.30, 12, 10);
+INSERT INTO store VALUES
+(12, "rice", 15, 2.89, 5, 20);
+INSERT INTO store VALUES
+(13, "sugar", 0, 1.75, 0, 0);
+INSERT INTO store VALUES
+(14, "sushi", 8, 9.99, 2, 0);
+INSERT INTO store VALUES
+(15, "apples", 15, 1.29, 10, 30);
+
+--display database by items with high stock (>10)
+SELECT * FROM store WHERE in_stock >10;
+
+--display database by items with low stock <10)
+SELECT item, in_stock FROM store WHERE in_stock <10;
+
+--display database by total number of items in stock
+SELECT SUM(quantity) FROM store; 
+
+--display database by item with highest quantity in stock
+SELECT  MAX(quantity), item FROM store;
+
+--display database by items with no current orders fro restock
+SELECT * FROM store WHERE on_order >0;
+
+--display database by items costing more then 1.00
+SELECT item, price FROM store WHERE price>1; 
+
+--disply database by items costing less than 1.00
+SELECT item, price FROM store WHERE price<1;
+
+--diaplay database by all items and their price
+SELECT item, price FROM store; 
